@@ -1,0 +1,13 @@
+- name: Setup NodeJS repos. Vendor is providing a script to setup the repos.
+  ansible.builtin.shell:  curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Install NodeJS
+    ansible.builtin.yum:
+      name: nodejs
+      state: present
+
+- name: download the dependencies.
+  ansible.builtin.command: npm install
+  args:
+    chdir: /app
+    

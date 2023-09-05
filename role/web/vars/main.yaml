@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.robokart.online
+USER_HOST: user.robokart.online
+SHIPPING_HOST: shipping.robokart.online
+CART_HOST: cart.robokart.online
+PAYMENT_HOST: payment.robokart.online

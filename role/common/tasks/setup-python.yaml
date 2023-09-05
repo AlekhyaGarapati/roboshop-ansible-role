@@ -1,0 +1,9 @@
+- name: Install python36 gcc python3-devel 
+  ansible.builtin.yum:
+    name: "{{item}}" 
+    state: present
+  loop:
+  - python36
+  - gcc
+  - python3-devel 
+    

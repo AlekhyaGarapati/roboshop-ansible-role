@@ -1,0 +1,25 @@
+- name: Installing and Configuring mysql
+  hosts: mysql
+  become: yes
+  tasks:
+    - name: Disabling mysql default version in centos
+      ansible.builtin.command: yum module disable mysql -y 
+    
+    - name: Copying mysql.repo to /etc/yum.repos.d folder
+      ansible.builtin.copy:
+        src:  mysql.repo
+        dest:  /etc/yum.repos.d
+
+    - name: Install MySQL Servers
+      ansible.builtin.yum:
+        name: mysql-community-server 
+        state: present
+
+    - name: Enable and Start mysql service
+      ansible.builtin.service:
+        name: mysqld
+        state: started
+        enabled: true
+
+    - name: Change default password to RoboShop@1
+      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1

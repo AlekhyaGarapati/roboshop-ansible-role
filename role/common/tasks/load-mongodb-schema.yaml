@@ -1,0 +1,19 @@
+- name: Copying mongo repo file
+  ansible.builtin.copy:
+    src:  mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Installing mongodb client
+  ansible.builtin.yum:
+    name: mongodb-org-shell 
+    state: installed
+
+- name: Load Schema
+  ansible.builtin.command: "mongo --host mongodb.robokart.online < /app/schema/{{component}}.js"
+      
+- name: Restart the Service
+  ansible.builtin.service:
+    name: "{{component}}"
+    state: restarted
+    enabled: true
+        
