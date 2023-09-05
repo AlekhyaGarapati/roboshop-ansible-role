@@ -20,8 +20,8 @@
     path: /app
     state: directory
 
- - name: Download the application code to created app directory.
-   ansible.builtin.get_url:
+- name: Download the application code to created app directory.
+  ansible.builtin.get_url:
     url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
     dest: "/tmp/{{component}}.zip"
     
