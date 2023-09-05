@@ -1,4 +1,9 @@
-- name: Implementing roboshop project in ansible using role structure directory
+# - name: Implementing roboshop project in ansible using role structure directory
+#   hosts: "{{component}}"
+#   become: yes
+#   roles:
+#   - "{{component}}"
+- name: Installing Roboshop project
   hosts: "{{component}}"
   become: yes
   roles:
