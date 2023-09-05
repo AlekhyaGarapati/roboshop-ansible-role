@@ -1,5 +1,5 @@
 - name: Implementing roboshop project in ansible using role structure directory
-  hosts: "{{component}}"
+  hosts: "{{ component }}"
   become: yes
   roles:
-  - "{{ component }}"
+  - {{ component }}
